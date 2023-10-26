@@ -14,16 +14,21 @@ public class PasswordMeter {
         }
 
         final boolean lengthRule = pw.length() >= 8;
+        final boolean containsUp = containsUppercase(pw);
+        final boolean containsDigit = containsDigit(pw);
+
+        if (!containsDigit && !containsUp && lengthRule) {
+            return PasswordStrength.WEAK;
+        }
+
         if (!lengthRule) {
             return PasswordStrength.NORMAL;
         }
 
-        final boolean containsUp = containsUppercase(pw);
         if (!containsUp) {
             return PasswordStrength.NORMAL;
         }
 
-        final boolean containsDigit = containsDigit(pw);
         if (!containsDigit) {
             return PasswordStrength.NORMAL;
         }

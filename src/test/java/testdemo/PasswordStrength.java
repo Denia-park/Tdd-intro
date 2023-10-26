@@ -1,6 +1,6 @@
 package testdemo;
 
 public enum PasswordStrength {
-    NORMAL, STRONG
+    NORMAL, WEAK, STRONG
 
 }
