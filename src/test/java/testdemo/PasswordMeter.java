@@ -21,6 +21,10 @@ public class PasswordMeter {
             return PasswordStrength.WEAK;
         }
 
+        if (!containsDigit && containsUp && !lengthRule) {
+            return PasswordStrength.WEAK;
+        }
+
         if (!lengthRule) {
             return PasswordStrength.NORMAL;
         }
