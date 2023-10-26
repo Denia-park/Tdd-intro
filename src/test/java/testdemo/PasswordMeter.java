@@ -19,12 +19,25 @@ public class PasswordMeter {
         }
 
         final boolean containsUp = containsUppercase(pw);
-
         if (!containsUp) {
             return PasswordStrength.NORMAL;
         }
 
+        final boolean containsDigit = containsDigit(pw);
+        if (!containsDigit) {
+            return PasswordStrength.NORMAL;
+        }
+
         return PasswordStrength.STRONG;
+    }
+
+    private boolean containsDigit(final String pw) {
+        for (char ch : pw.toCharArray()) {
+            if (ch >= '0' && ch <= '9') {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean containsUppercase(final String pw) {
