@@ -17,11 +17,13 @@ public class PasswordMeter {
         final boolean containsUp = containsUppercase(pw);
         final boolean containsDigit = containsDigit(pw);
 
-        if (!containsDigit && !containsUp && lengthRule) {
-            return PasswordStrength.WEAK;
-        }
+        int meterCount = 0;
 
-        if (!containsDigit && containsUp && !lengthRule) {
+        if (lengthRule) meterCount++;
+        if (containsUp) meterCount++;
+        if (containsDigit) meterCount++;
+
+        if (meterCount == 1) {
             return PasswordStrength.WEAK;
         }
 
