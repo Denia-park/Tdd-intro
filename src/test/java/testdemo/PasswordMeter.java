@@ -27,15 +27,7 @@ public class PasswordMeter {
             return PasswordStrength.WEAK;
         }
 
-        if (!lengthRule) {
-            return PasswordStrength.NORMAL;
-        }
-
-        if (!containsUp) {
-            return PasswordStrength.NORMAL;
-        }
-
-        if (!containsDigit) {
+        if (meterCount == 2) {
             return PasswordStrength.NORMAL;
         }
 
