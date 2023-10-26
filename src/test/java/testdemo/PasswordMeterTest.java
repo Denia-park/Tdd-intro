@@ -14,4 +14,14 @@ class PasswordMeterTest {
             passwordMeter.meter(null);
         });
     }
+
+    @Test
+    @DisplayName("빈 값 입력이면 Exception 발생")
+    void emptyInput() {
+        final PasswordMeter passwordMeter = new PasswordMeter();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            passwordMeter.meter("");
+        });
+    }
 }
