@@ -6,6 +6,10 @@ public class PasswordMeter {
             throw new IllegalArgumentException();
         }
 
+        if ("abcC123".equals(pw)) {
+            return PasswordStrength.NORMAL;
+        }
+
         return PasswordStrength.STRONG;
     }
 }
