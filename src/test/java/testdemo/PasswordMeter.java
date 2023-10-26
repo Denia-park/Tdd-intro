@@ -12,12 +12,8 @@ public class PasswordMeter {
         if (pw == null || pw.isEmpty()) {
             throw new IllegalArgumentException();
         }
-
-        int meterCount = 0;
-
-        if (pw.length() >= 8) meterCount++;
-        if (containsUppercase(pw)) meterCount++;
-        if (containsDigit(pw)) meterCount++;
+        
+        int meterCount = calculateMeterCount(pw);
 
         if (meterCount <= 1) {
             return PasswordStrength.WEAK;
@@ -28,6 +24,20 @@ public class PasswordMeter {
         }
 
         return PasswordStrength.STRONG;
+    }
+
+    private int calculateMeterCount(final String pw) {
+        int meterCount = 0;
+
+        if (meetLength(pw)) meterCount++;
+        if (containsUppercase(pw)) meterCount++;
+        if (containsDigit(pw)) meterCount++;
+
+        return meterCount;
+    }
+
+    private boolean meetLength(final String pw) {
+        return pw.length() >= 8;
     }
 
     private boolean containsDigit(final String pw) {
