@@ -23,7 +23,7 @@ public class PasswordMeter {
         if (containsUp) meterCount++;
         if (containsDigit) meterCount++;
 
-        if (meterCount == 1) {
+        if (meterCount <= 1) {
             return PasswordStrength.WEAK;
         }
 
