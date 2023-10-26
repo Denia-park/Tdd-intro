@@ -18,19 +18,22 @@ public class PasswordMeter {
             return PasswordStrength.NORMAL;
         }
 
-        boolean foundUppercase = false;
+        final boolean containsUp = containsUppercase(pw);
 
-        for (char ch : pw.toCharArray()) {
-            if (ch >= 'A' && ch <= 'Z') {
-                foundUppercase = true;
-                break;
-            }
-        }
-
-        if (!foundUppercase) {
+        if (!containsUp) {
             return PasswordStrength.NORMAL;
         }
 
         return PasswordStrength.STRONG;
+    }
+
+    private boolean containsUppercase(final String pw) {
+        for (char ch : pw.toCharArray()) {
+            if (ch >= 'A' && ch <= 'Z') {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
