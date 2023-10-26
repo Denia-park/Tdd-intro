@@ -1,4 +1,4 @@
-package testdemo;
+package passwordMeter;
 
 /*
     1. 경우가 바로 떠오르면 바로 구현을 해도 됨
@@ -12,7 +12,7 @@ public class PasswordMeter {
         if (pw == null || pw.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        
+
         int meterCount = calculateMeterCount(pw);
 
         if (meterCount <= 1) {

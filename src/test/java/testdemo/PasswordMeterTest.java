@@ -3,6 +3,8 @@ package testdemo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import passwordMeter.PasswordMeter;
+import passwordMeter.PasswordStrength;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
