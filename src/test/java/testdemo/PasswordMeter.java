@@ -13,15 +13,11 @@ public class PasswordMeter {
             throw new IllegalArgumentException();
         }
 
-        final boolean lengthRule = pw.length() >= 8;
-        final boolean containsUp = containsUppercase(pw);
-        final boolean containsDigit = containsDigit(pw);
-
         int meterCount = 0;
 
-        if (lengthRule) meterCount++;
-        if (containsUp) meterCount++;
-        if (containsDigit) meterCount++;
+        if (pw.length() >= 8) meterCount++;
+        if (containsUppercase(pw)) meterCount++;
+        if (containsDigit(pw)) meterCount++;
 
         if (meterCount <= 1) {
             return PasswordStrength.WEAK;
