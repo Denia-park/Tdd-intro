@@ -7,11 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PasswordMeterTest {
+
+    private final PasswordMeter passwordMeter = new PasswordMeter();
+
     @Test
     @DisplayName("null 입력이면 Exception 발생")
     void nullInput() {
-        final PasswordMeter passwordMeter = new PasswordMeter();
-
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             passwordMeter.meter(null);
         });
@@ -20,8 +21,6 @@ class PasswordMeterTest {
     @Test
     @DisplayName("빈 값 입력이면 Exception 발생")
     void emptyInput() {
-        final PasswordMeter passwordMeter = new PasswordMeter();
-
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             passwordMeter.meter("");
         });
@@ -30,8 +29,6 @@ class PasswordMeterTest {
     @Test
     @DisplayName("모든 조건을 충족하면 강함")
     void meetAllRules() {
-        final PasswordMeter passwordMeter = new PasswordMeter();
-
         PasswordStrength passwordStrength = passwordMeter.meter("abcABC123");
         assertThat(passwordStrength).isEqualTo(PasswordStrength.STRONG);
     }
